@@ -1,4 +1,4 @@
-const API_KEY = 'AIzaSyCyYqID_UuUgzegvlnRdjLsGM45gSsEZig';
+const API_KEY = 'AIzaSyDWmxmpEujOWPDva_KjsrKjUrPLXbbztHc';
 const MODEL = 'gemini-3-pro-image-preview';
 
 export async function generateImage({ prompt, images, aspectRatio = 'auto', resolution = '1k', count = 1 }) {
