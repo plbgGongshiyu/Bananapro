@@ -1,0 +1,125 @@
+.editor-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+}
+
+.editor-container {
+    width: 100%;
+    max-width: 95vw;
+    max-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.editor-header {
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.editor-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: auto;
+    background: #000;
+}
+
+.canvas-wrapper {
+    position: relative;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.bg-canvas {
+    display: block;
+}
+
+.drawing-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: crosshair;
+}
+
+.editor-footer {
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.editor-tools {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.tool-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+}
+
+.tool-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.tool-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.tool-btn.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+.color-picker {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    cursor: pointer;
+}
+
+.size-slider {
+    width: 100px;
+    accent-color: var(--accent-color);
+}
+
+.size-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    min-width: 40px;
+}
