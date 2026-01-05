@@ -6,6 +6,7 @@ import './App.css';
 
 function App() {
   const [prompt, setPrompt] = useState('');
+  const [apiKey, setApiKey] = useState('');
   const [aspectRatio, setAspectRatio] = useState('auto');
   const [resolution, setResolution] = useState('1k');
   const [count, setCount] = useState(1);
@@ -31,6 +32,10 @@ function App() {
   };
 
   const handleGenerate = async () => {
+    if (!apiKey.trim()) {
+      setError('Please enter your Gemini API key');
+      return;
+    }
     if (!prompt.trim()) {
       setError('Please enter a prompt');
       return;
@@ -40,6 +45,7 @@ function App() {
     try {
       const results = await generateImage({
         prompt,
+        apiKey,
         images: uploadedImages,
         aspectRatio,
         resolution,
@@ -81,6 +87,17 @@ function App() {
         </div>
 
         <div className="sidebar-content scrollbar-hide">
+          <div className="input-group">
+            <label className="label">Gemini API Key</label>
+            <input
+              type="password"
+              placeholder="Enter your Gemini API key"
+              value={apiKey}
+              onChange={(e) => setApiKey(e.target.value)}
+            />
+            <p className="helper-text">Your key is kept only in this session.</p>
+          </div>
+
           <div className="input-group">
             <label className="label">Prompt</label>
             <textarea

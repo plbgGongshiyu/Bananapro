@@ -1,8 +1,10 @@
-const API_KEY = 'AIzaSyDWmxmpEujOWPDva_KjsrKjUrPLXbbztHc';
 const MODEL = 'gemini-3-pro-image-preview';
 
-export async function generateImage({ prompt, images, aspectRatio = 'auto', resolution = '1k', count = 1 }) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`;
+export async function generateImage({ prompt, images, aspectRatio = 'auto', resolution = '1k', count = 1, apiKey }) {
+  if (!apiKey) {
+    throw new Error('API Key is required');
+  }
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${apiKey}`;
 
   // Convert images to the format expected by Gemini API (base64)
   const imageParts = await Promise.all(
